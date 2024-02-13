@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link  } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link,NavLink   } from 'react-router-dom';
 
 import Home from './components/home';
 import Posts from './components/posts';
@@ -16,13 +16,15 @@ const App = () => {
 
           <ul className='nav nav-pills'>
             <li className='nav-item'>
-              <Link to="/" className='nav-link'>Home</Link>
+             <NavLink to="/" className='nav-link'>
+                Home
+              </NavLink>
             </li>
             <li className='nav-item'>
-              <Link to="posts" className='nav-link'>Posts</Link>
+              <NavLink to="posts" className='nav-link'>Posts</NavLink>
             </li>
             <li className='nav-item'>
-              <Link to="profile" className='nav-link'>Profile</Link>
+             <NavLink to="profile" className='nav-link'>Profile</NavLink>
             </li>
           </ul>
         </header>
@@ -30,6 +32,11 @@ const App = () => {
           <Route path='posts' element={<Posts/>}/>
           <Route path='profile' element={<Profile/>}/>
           <Route path='/' element={<Home/>}/>
+           <Route path="*" element={
+            <>
+                <h1>No page found</h1>
+            </>
+          }/>
         </Routes>
       </div>
     </BrowserRouter>
